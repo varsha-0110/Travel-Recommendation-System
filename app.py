@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 # Load datasets and models
 features = ['Name_x', 'State', 'Type', 'BestTimeToVisit', 'Preferences', 'Gender', 'NumberOfAdults', 'NumberOfChildren']
-model = pickle.load(open(r'C:\Users\Public\Downloads\Travel and Tour Recommendation System\Code and DataSet\model (4).pkl','rb'))
-label_encoders = pickle.load(open(r'C:\Users\Public\Downloads\Travel and Tour Recommendation System\Code and DataSet\label_encoders.pkl','rb'))
+model = pickle.load(open(r'C:\Users\Public\Downloads\Travel and Tour Recommendation System\models\model.pkl','rb'))
+label_encoders = pickle.load(open(r'C:\Users\Public\Downloads\Travel and Tour Recommendation System\models\label_encoders.pkl','rb'))
 
 destinations_df = pd.read_csv(r"C:\Users\Public\Downloads\Travel and Tour Recommendation System\Code and DataSet\Expanded_Destinations[1].csv")
 userhistory_df = pd.read_csv(r"C:\Users\Public\Downloads\Travel and Tour Recommendation System\Code and DataSet\Final_Updated_Expanded_UserHistory[1].csv")
