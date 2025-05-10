@@ -3,19 +3,19 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import pickle
 import numpy as np
-
+import os
 # app
 app = Flask(__name__)
 
+# Use relative paths
+model_path = os.path.join('models', 'models.pkl')
+encoders_path = os.path.join('models', 'label_encoders.pkl')
+
 # Load datasets and models
 features = ['Name_x', 'State', 'Type', 'BestTimeToVisit', 'Preferences', 'Gender', 'NumberOfAdults', 'NumberOfChildren']
-model = pickle.load(open(r'C:\Users\Public\Downloads\Travel and Tour Recommendation System\models\models.pkl','rb'))
-label_encoders = pickle.load(open(r'C:\Users\Public\Downloads\Travel and Tour Recommendation System\models\label_encoders.pkl','rb'))
-
-destinations_df = pd.read_csv(r"C:\Users\Public\Downloads\Travel and Tour Recommendation System\Code and DataSet\Expanded_Destinations[1].csv")
-userhistory_df = pd.read_csv(r"C:\Users\Public\Downloads\Travel and Tour Recommendation System\Code and DataSet\Final_Updated_Expanded_UserHistory[1].csv")
-df = pd.read_csv(r"C:\Users\Public\Downloads\Travel and Tour Recommendation System\Code and DataSet\final_df.csv")
-
+destinations_df = pd.read_csv(os.path.join('Code and DataSet', 'Expanded_Destinations[1].csv'))
+userhistory_df = pd.read_csv(os.path.join('Code and DataSet', 'Final_Updated_Expanded_UserHistory[1].csv'))
+df = pd.read_csv(os.path.join('Code and DataSet', 'final_df.csv'))
 
 # Collaborative Filtering Function
 # Create a user-item matrix based on user history
